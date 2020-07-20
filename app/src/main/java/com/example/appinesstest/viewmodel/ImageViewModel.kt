@@ -9,11 +9,11 @@ import com.example.appinesstest.network.ApiService
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-class ImageViewModel(val apiService: ApiService) : ViewModel() {
+class ImageViewModel(private val apiService: ApiService) : ViewModel() {
 
 
     var resource = MutableLiveData<Resource<List<FlickrPhoto>>>()
-    var pageNumber: Int = 1
+    private var pageNumber: Int = 1
     var isFirstPage = true
 
 
@@ -21,7 +21,7 @@ class ImageViewModel(val apiService: ApiService) : ViewModel() {
         viewModelScope.launch {
             val response = apiService.getFlickrImages(searchText = searchString, page = pageNumber)
             try {
-                if (response.status.equals("ok")) {
+                if (response.status == "ok") {
                     resource.postValue(Resource.success(response.photos.photoList))
                     pageNumber = response.photos.page + 1
                 } else

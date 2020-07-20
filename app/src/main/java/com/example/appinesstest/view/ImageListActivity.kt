@@ -116,11 +116,17 @@ class ImageListActivity : AppCompatActivity() {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         searchView = menu.findItem(R.id.action_search).actionView as SearchView
         val searchEditText = searchView.findViewById<View>(R.id.search_src_text) as EditText
+//        searchEditText.setImeActionLabel("actionSearch")
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
         searchView.maxWidth = Int.MAX_VALUE
         searchEditText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_DONE) {
-                refreshSearchView(searchEditText)
+                searchText = searchEditText.text.toString().trim()
+                if (searchText.isEmpty()) {
+                    shortToast(getString(R.string.search_error))
+                } else {
+                    refreshSearchView(searchEditText)
+                }
             }
             false
         }

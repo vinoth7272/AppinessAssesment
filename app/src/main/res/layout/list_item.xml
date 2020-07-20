@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     android:paddingLeft="@dimen/list_item_padding_left_right"
     android:paddingRight="@dimen/list_item_padding_left_right"
-    android:paddingBottom="@dimen/list_item_margin_bottom">
+    android:paddingBottom="@dimen/list_item_margin_bottom"
+    android:id="@+id/rootView">
 
     <ImageView
         android:id="@+id/ivImage"

@@ -21,10 +21,6 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class ImageViewModelTest {
 
-    val API_KEY = "062a6c0c49e4de1d78497d13a7dbb360"
-    val FORMAT_TYPE = "json"
-    val METHOD_NAME = "flickr.photos.search"
-
     private lateinit var searchText: String
 
     @get:Rule
@@ -66,7 +62,6 @@ class ImageViewModelTest {
 
     @Test
     fun getApiErrorResponse_Test() {
-        val API_KEY="062a6c0c49e4de1d78497d13a7dbb360"
         testCoroutineRule.runBlockingTest {
             val errorMessage = "Data Mismatch error"
             doThrow(RuntimeException(errorMessage))

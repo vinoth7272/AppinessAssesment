@@ -1,10 +1,8 @@
 package com.example.appinesstest.view
 
-import android.view.View
-import kotlinx.android.synthetic.main.activity_main.*
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotNull
+import androidx.test.rule.ActivityTestRule
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
@@ -15,6 +13,9 @@ import org.mockito.junit.MockitoJUnitRunner
 class ImageListActivityTest {
     @Mock
     private lateinit var imageListActivity: ImageListActivity
+
+    @get:Rule
+    val activityRule = ActivityTestRule(ImageListActivity::class.java)
 
     @Before
     fun setUp() {

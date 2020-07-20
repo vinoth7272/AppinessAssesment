@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AppinessAssesment</string>
     <string name="network_error">Please check your internet connection</string>
+    <string name="search_error">Invalid Search</string>
 </resources>
